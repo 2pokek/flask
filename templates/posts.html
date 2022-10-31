@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+All articles
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>All articles</h1>
+    {% for l in articles %}
+    <footer class="pt-4 my-md-5 pt-md-4 border-bottom border-top">
+    <h2>{{l.title}}</h2>
+    <h6>{{l.nickname}}</h6>
+    <p>{{l.intro}}</p>
+    <p>{{l.text}}</p>
+    </footer>
+    {% endfor %}
+</div>
+{% endblock %}
