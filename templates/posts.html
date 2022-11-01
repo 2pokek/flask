@@ -5,15 +5,19 @@ All articles
 {% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>All articles</h1>
-    {% for l in articles %}
-    <footer class="alert alert-info pt-4 my-md-5 pt-md-4 border-bottom border-top">
-        <h2>{{l.title}}</h2>
-        <h6>{{l.nickname}}</h6>
-        <p>{{l.intro}}</p>
-        <p>{{l.text}}</p>
-    </footer>
-    {% endfor %}
-</div>
+    <div class="container">
+        <h1>All articles</h1>
+    {% if articles|length > 0 %}
+        {% for l in articles %}
+        <footer class="alert alert-info pt-4 my-md-5 pt-md-4 border-bottom border-top">
+            <h2>{{l.title}}</h2>
+            <p><h6>{{l.nickname}}</h6></p>
+            <p>{{l.intro}}</p>
+            <a href="/posts/{{ l.id }}" class="btn btn-warning">more</a>
+        </footer>
+        {% endfor %}
+    {% else %}
+        <p>No posts so far</p>
+    {% endif %}
+    </div>
 {% endblock %}
